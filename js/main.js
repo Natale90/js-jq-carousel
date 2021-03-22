@@ -15,6 +15,23 @@ function prevSlide(){
     activeImg.removeClass("active");
     prevImg.addClass("active");
   }
+
+  // -------------------
+
+  var activeCircle = $(".circle_active");
+  var prevCircle = activeCircle.prev("i");
+
+  if(activeCircle.hasClass("first")){
+
+    var prevCircle = $("i.last");
+
+    activeCircle.removeClass("circle_active");
+    prevCircle.addClass("circle_active");
+  } else {
+
+    activeCircle.removeClass("circle_active");
+    prevCircle.addClass("circle_active");
+  }
 }
 
 
@@ -37,10 +54,8 @@ function nextSlide(){
     activeImg.removeClass("active");
     nextImg.addClass("active");
   }
-}
 
-
-function nextCircle(){
+  // ----------------------------------------
 
   var circleActive = $(".circle_active");
   var nextCircle = circleActive.next("i");
@@ -61,30 +76,13 @@ function nextCircle(){
   }
 }
 
-function prevCircle(){
 
-  var activeCircle = $(".circle_active");
-  var prevCircle = activeCircle.prev("i");
-
-  if(activeCircle.hasClass("first")){
-
-    var prevCircle = $("i.last");
-
-    activeCircle.removeClass("circle_active");
-    prevCircle.addClass("circle_active");
-  } else {
-
-    activeCircle.removeClass("circle_active");
-    prevCircle.addClass("circle_active");
-  }
-}
 
 function init(){
 
   $(".next").click(nextSlide);
   $(".prev").click(prevSlide);
-  $(".next").click(nextCircle);
-  $(".prev").click(prevCircle);
+
 }
 
 $(document).ready(init);
